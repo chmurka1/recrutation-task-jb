@@ -31,7 +31,7 @@ fun App() {
         val onSave = {
             errorMessage = null
             fileModified = false
-            saveScript(fileName, fileContents, onError = { errorMessage = it })
+            saveScript(fileName, fileContents, onSuccess = {loadedFileName = it}, onError = { errorMessage = it })
         }
 
         val onLoad = {

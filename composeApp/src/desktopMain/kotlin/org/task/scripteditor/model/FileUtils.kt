@@ -2,8 +2,9 @@ package org.task.scripteditor.model
 
 import java.io.File
 
-fun saveScript(fileName: String?, contents: String, onError: (String?) -> Unit) = try {
+fun saveScript(fileName: String?, contents: String, onSuccess: (String) -> Unit, onError: (String?) -> Unit) = try {
     File(fileName!!).writeText(contents)
+    onSuccess(fileName)
 } catch (e: Exception) {
     onError(e.toString())
 }
